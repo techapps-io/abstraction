@@ -21,3 +21,12 @@ if (! function_exists('hashid_decode')) {
         return (int) reset($decode);
     }
 }
+
+if (! function_exists('relative_url')) {
+    function relative_url($str)
+    {
+        $url = url($str);
+        $parse_url = parse_url($url);
+        return isset($parse_url['path']) ? $parse_url['path'] : '/';
+    }
+}
