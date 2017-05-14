@@ -2,10 +2,11 @@
 
 namespace Cygnis\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Hashids\Hashids;
+use Validator;
 
-class ServiceProvider extends ServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Bootstrap the application services.
