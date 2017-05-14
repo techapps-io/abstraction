@@ -5,6 +5,7 @@ namespace Cygnis\Providers;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Hashids\Hashids;
 use Validator;
+use Cygnis\Services\Validation;
 
 class ServiceProvider extends BaseServiceProvider
 {
