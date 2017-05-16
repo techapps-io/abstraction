@@ -61,8 +61,10 @@ abstract class AbstractRepository implements RepositoryContract {
             $query = $this->model->find($id);
             if ($query != NULL) {
 
-                $data = (object) $query->getAttributes();
-
+                $data = new \stdClass;
+                foreach ($query->getAttributes() as $column => $value) {
+                    $data->{$column} = $query->{$column};
+                }
                 Cache::forever($this->_cacheKey.$id, $data);
             } else {
                 return null;

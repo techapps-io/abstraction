@@ -19,9 +19,9 @@ class ServiceProvider extends BaseServiceProvider
         $this->publishes([
             __DIR__.'/config/cygnis.php' => config_path('cygnis.php'),
         ]);
-        Validator::resolver(function($translator, $data, $rules, $messages) {
-            return new Validation($translator, $data, $rules, $messages);
-        });
+        // Validator::resolver(function($translator, $data, $rules, $messages) {
+        //     return new Validation($translator, $data, $rules, $messages);
+        // });
     }
 
     /**
