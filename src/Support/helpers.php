@@ -30,3 +30,22 @@ if (! function_exists('relative_url')) {
         return isset($parse_url['path']) ? $parse_url['path'] : '/';
     }
 }
+
+if (! function_exists('file_url')) {
+    function file_url($url)
+    {
+        $fs = config('filesystems.default');
+        if ($fs == 'local' || $fs == 'public') {
+            return \URL::to('files/'.$url);
+        } else if($fs == 'rackspace'){
+            if (config('app.is_secure')) {
+                return config('filesystems.disks.rackspace.secure_url').$url;
+            } else {
+                return config('filesystems.disks.rackspace.public_url').$url;
+            }
+        } else {
+            $url = \Storage::url($url);
+            return str_replace('%40', '@', $url);
+        }
+    }
+}
