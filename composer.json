@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.5.*",
+        "laravel/framework": "5.7.*",
         "hashids/hashids": "^1.0"
     },
     "autoload": {
